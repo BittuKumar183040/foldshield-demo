@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import { K2D } from "next/font/google";
+import "./globals.css";
+import SmoothScrollProvider from "./components/SmoothScrollProvider";
+
+const k2d = K2D({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-k2d",
+});
+
+export const metadata: Metadata = {
+  title: "Foldshield++",
+  description: "Symbolic Intelligence Infrastructure for Complex Systems",
+  keywords: ["AI", "Quantum", "Finance", "Biology", "Research"]
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" suppressHydrationWarning className={`${k2d.variable} h-dvh antialiased`}>
+      <body className="min-h-full w-full flex flex-col">
+        <SmoothScrollProvider>
+          {/* <CursorEffect /> */}
+          {children}
+        </SmoothScrollProvider>
+      </body>
+    </html>
+  );
+}
