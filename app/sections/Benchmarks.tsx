@@ -144,8 +144,9 @@ const Benchmarks = () => {
             ))}
           </div>
         </div>
-        <div>
-          <div className="grid grid-cols-2 gap-2 md:my-10">
+        <div className=" flex flex-col justify-between">
+          <p></p>
+          <div className="grid grid-cols-2 gap-2 my-0">
             {model.statsCard.map((stats) => (
               <ResultCard
                 key={stats.component}
