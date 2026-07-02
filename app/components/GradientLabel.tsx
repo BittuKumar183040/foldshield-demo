@@ -10,11 +10,11 @@ const sizeMap = {
   xs: "text-xs",
   sm: "text-sm",
   md: "text-base",
-  lg: "text-lg",
-  xl: "text-xl",
-  "2xl": "text-xl lg:text-3xl",
-  "3xl": "text-2xl lg:text-4xl",
-  "4xl": "text-3xl lg:text-5xl",
+  lg: "text-lg leading-normal",
+  xl: "text-xl leading-normal",
+  "2xl": "text-xl lg:text-3xl leading-tight",
+  "3xl": "text-2xl lg:text-4xl leading-tight",
+  "4xl": "text-3xl lg:text-5xl leading-[1.2]",
 };
 
 const weightMap = {
@@ -35,6 +35,7 @@ export default function GradientLabel({
       className={`
         ${sizeMap[size]}
         ${weightMap[weight]}
+        leading[1.2]
         ${centered ? "mx-auto w-fit text-center" : ""}
         bg-gradient-to-r
         from-[#252422]
