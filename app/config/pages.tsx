@@ -2,15 +2,18 @@ const BaseURL = "/slider/"
 
 export const Pages = [
   {
-    title: "Understand Protein Folding Before It Happens",
-    highlight: "Intelligence",
-    desc: "Symbolic Protein Folding & Mutation Intelligence for predicting structural change, mutation impact, and folding behavior—without brute-force simulation.",
-    tagline: "For Understanding and Controlling Complex System",
+    title: "The structural changes that matter most are the ones geometry can't see.",
+    desc: "FoldShield++ detects mutation impact, fold switching, and conformational shifts using symbolic topology – catching what TM-score, RMSD, and LDDT systematically miss.",
+    tagline: "Structural Intelligence Engine — RexCrux Research Laboratory",
+
     image:  BaseURL + "particle.mkv",
     isDark: false,
+
+  
     cta: "Book a Demo",
     ctaLink: "/contact",
-    secondaryCta: null,
-    secondaryCtaLink: null,
+
+    secondaryCta: "View Benchmarks",
+    secondaryCtaLink: "/benchmarks",
   }
 ]
