@@ -8,14 +8,13 @@ import { SOLUTIONS } from "../config/solutions";
 import HorizontalEntity from "../components/HorizontalEntity";
 
 gsap.registerPlugin(ScrollTrigger);
-const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
 const CoreCapabilities = () => {
   const labelRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    if (labelRef.current)
+    if (labelRef.current) {
       gsap.fromTo(
         labelRef.current,
         { opacity: 0, y: -16 },
@@ -29,10 +28,11 @@ const CoreCapabilities = () => {
             start: "top 90%",
             toggleActions: "play none none none",
           },
-        },
+        }
       );
+    }
 
-    if (headingRef.current)
+    if (headingRef.current) {
       gsap.fromTo(
         headingRef.current,
         { opacity: 0, y: 20 },
@@ -47,8 +47,9 @@ const CoreCapabilities = () => {
             start: "top 90%",
             toggleActions: "play none none none",
           },
-        },
+        }
       );
+    }
   }, []);
 
   return (
@@ -56,8 +57,13 @@ const CoreCapabilities = () => {
       id="capabilities"
       className="flex flex-col gap-8 md:gap-10 w-full pb-20 pt-20 px-2.5 md:px-6 lg:px-25"
     >
+      
       <div ref={labelRef} style={{ opacity: 0 }}>
-        <GradientLabel label="CORE CAPABILITIES" size="3xl" weight="normal" />
+        <GradientLabel
+          label="What FoldShield++ Does"
+          size="3xl"
+          weight="normal"
+        />
       </div>
 
       <p
@@ -65,20 +71,18 @@ const CoreCapabilities = () => {
         className="max-w-xl md:max-w-2xl text-lg md:text-xl text-black/50 dark:text-white/50 leading-relaxed"
         style={{ opacity: 0 }}
       >
-        The exponential growth in protein structure predictions—driven by
-        AlphaFold2 and ESMFold—has created an urgent need for analysis tools
-        that can scale beyond traditional geometric comparisons. Conventional
-        metrics such as Root Mean Square Deviation (RMSD), Template Modeling
-        Score (TM-score), and DALI alignments, while foundational, suffer from
-        critical limitations: sensitivity to minor deviations, inability to
-        capture dynamic behaviors, and poor interpretability in clinical and
-        regulatory contexts.
+        Four signals. One score. Full interpretability.
       </p>
 
       <div className="flex flex-col relative" style={{ paddingLeft: 24 }}>
-        {SOLUTIONS.map((s, i) => (
-          <HorizontalEntity key={s.title} {...s} index={i} />
+        {SOLUTIONS.map((solution, index) => (
+          <HorizontalEntity
+            key={solution.title}
+            {...solution}
+            index={index}
+          />
         ))}
+
         <div className="border-t border-black/10 dark:border-white/10" />
       </div>
     </section>

@@ -6,6 +6,7 @@ import HeroSection from "./sections/HeroSection";
 import PlatformSlider from "./sections/Platform";
 import Benchmarks from "./sections/Benchmarks";
 import Navbar from "./sections/Navbar";
+import WhoItsFor from "./sections/WhoItsFor";
 
 export default function Home() {
   return (<>
@@ -17,8 +18,9 @@ export default function Home() {
       <Benchmarks />
         <Seperator />
       <CoreCapabilities />
-        <Seperator />
-      <FAQSection />
+        <WhoItsFor />
+      <Seperator />
+        <FAQSection />
       <Footer />
     </div>
   </>
