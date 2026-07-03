@@ -111,15 +111,23 @@ const Benchmarks = () => {
         </div>
       )}
 
-      <div className="flex flex-col items-center gap-6 " ref={labelRef}>
+      <div
+        className="flex flex-col items-center gap-8 mb-16"
+        ref={labelRef}
+      >
         <GradientLabel
-          label={current.tagline}
+          label="Independent Benchmark Results"
           size="3xl"
           weight="normal"
           centered
         />
-        <p className=" text-center w-8/12 text-md dark:text-white/80">
-          {current.desc}
+        <p className="max-w-4xl text-center text-lg leading-9 text-black/70 dark:text-white/70">
+          <>
+          FoldShield++ has been validated across mutation prediction,
+          fold classification, structural comparison, and conformational
+          state detection—demonstrating interpretable performance beyond
+          traditional geometric metrics.
+          </>
         </p>
       </div>
       {isDesktop && (
