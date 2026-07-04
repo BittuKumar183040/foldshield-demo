@@ -87,13 +87,14 @@ const HeroSection = () => {
 
         <div className="flex items-center gap-8">
 
-          {/* Book a Demo */}
+
           <Button
             label={current.cta}
             onClick={() => {
               window.location.href = current.ctaLink;
             }}
           />
+
 
           {current.secondaryCta && (
             <button
@@ -102,13 +103,12 @@ const HeroSection = () => {
                   window.location.href = current.secondaryCtaLink;
                 }
               }}
-              className="group flex items-center justify-between gap-4 rounded-full bg-transparent backdrop-blur-sm border border-black dark:border-white/20 text-black dark:text-white pl-6 pr-2 py-2 min-w-[230px] cursor-pointer transition-all duration-300 hover:border-[#E8B9A3] hover:text-[#E8B9A3] hover:bg-black/5 dark:hover:bg-white/5"
-            >
+              className="group flex items-center justify-between gap-4 rounded-full bg-transparent backdrop-blur-sm border border-black/15 dark:border-[#E8B9A3]/25 text-black dark:text-white pl-6 pr-2 py-2 min-w-[215px] cursor-pointer transition-all duration-300 ease-out hover:border-[#E8B9A3]/55 hover:bg-[#E8B9A3]/5">
               <span className="text-base font-medium whitespace-nowrap">
                 {current.secondaryCta}
               </span>
 
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-black dark:border-white/20 text-black dark:text-white shrink-0 transition-all duration-300 group-hover:border-[#E8B9A3] group-hover:text-[#E8B9A3] group-hover:translate-x-1">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-500/30 dark:border-white/15 bg-transparent text-black dark:text-white shrink-0 transition-all duration-300 ease-out group-hover:border-[#E8B9A3]/70 group-hover:bg-[#E8B9A3]/10 group-hover:translate-x-1">
                 <ArrowIcon />
               </div>
             </button>
@@ -132,4 +132,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection; 
+export default HeroSection;
