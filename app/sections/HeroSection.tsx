@@ -116,10 +116,10 @@ const HeroSection = () => {
 
         </div>
 
-        <p className="text-sm italic text-black/50 dark:text-white/50 max-w-xl">
+        {/* <p className="text-sm italic text-black/50 dark:text-white/50 max-w-xl">
           Not a replacement for AlphaFold or ESMFold. The analysis layer that
           runs on top.
-        </p>
+        </p> */}
 
       </div>
 
