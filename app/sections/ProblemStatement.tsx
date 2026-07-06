@@ -120,12 +120,12 @@ const ProblemStatement = () => {
                   ${index !== 0 ? "pt-4" : ""}
                 `}
               >
-                <p className="font-mono text-[15px] leading-7 tracking-tight text-black dark:text-white">
-                  <span className="inline-block min-w-[140px] font-semibold text-[#D89267]">
+                <p className="font-mono md:text-lg text-md leading-7 tracking-tight text-black dark:text-white">
+                  <span className="inline-block font-semibold text-[#D89267]">
                     {example.title}
                   </span>
 
-                  <span className="mx-3 text-black/40 dark:text-white/40">
+                  <span className="mx-2 text-black/40 dark:text-white/40">
                     ·
                   </span>
 
@@ -133,7 +133,7 @@ const ProblemStatement = () => {
                     {example.desc}
                   </span>
                   <br className="md:hidden block" />
-                  <span className="ml-3 font-medium text-black dark:text-white">
+                  <span className="md:ml-3 font-medium text-black dark:text-white">
                     {example.outcome}
                   </span>
                 </p>
@@ -141,7 +141,7 @@ const ProblemStatement = () => {
             ))}
           </div>
 
-          <div className="mt-6 bg-white/10 p-6 backdrop-blur-xs">
+          <div className="mt-6 bg-white/10 p-6 backdrop-blur-md">
             <p className="max-w-5xl text-md font-medium leading-[1.6] text-black md:text-xl dark:text-white">
               {problemStatement.conclusion.intro}
               <span className="text-black/50 dark:text-white/50">

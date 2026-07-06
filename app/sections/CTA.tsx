@@ -5,7 +5,7 @@ import Button from "../components/Button";
 const CTA = () => {
   return (
     <section className="w-full px-4 py-20 md:px-8 lg:px-24">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-white/10 backdrop-blur-xs px-8 py-16 text-white md:px-16 md:py-20">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md px-8 py-16 text-white md:px-16 md:py-20">
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
           <div className="max-w-3xl">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-[#D89267]">

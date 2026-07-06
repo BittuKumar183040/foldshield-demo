@@ -38,12 +38,12 @@ export const problemStatement: ProblemStatementContent = {
 
   examples: [
     {
-      title: "KRAS G12C",
+      title: "KRAS ‎ ‎ G12C",
       desc: "TM-score > 0.97, RMSD < 1 Å.",
       outcome: "Switch-I dynamics altered. Drug target.",
     },
     {
-      title: "BRCA1 C61G",
+      title: "BRCA1 ‎ ‎ C61G",
       desc: "TM-score ≈ 0.93.",
       outcome: "Zinc coordination destroyed. E3 ligase activity abolished.",
     },
@@ -59,6 +59,6 @@ export const problemStatement: ProblemStatementContent = {
     muted: " geometry says nothing changed.",
     highlight: "Biology says everything changed.",
     ending:
-      " FoldShield++ reads the structural grammar—not just the coordinates.",
+      " FoldShield++ reads the structural grammar — not just the coordinates.",
   },
 };
