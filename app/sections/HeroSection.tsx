@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Pages } from "../config/pages";
 import TextResolver from "../components/ui/TextResolverAnimation";
+import Link from "next/link";
 
 const HeroSection = () => {
   const [active, setActive] = useState(0);
@@ -32,6 +33,19 @@ const HeroSection = () => {
       },
     );
   }, [active]);
+
+  const handleScroll = (id: string) => {
+    const targetId = id.startsWith("#") ? id.slice(1) : id;
+
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <section id="home" className="relative flex w-full lg:min-h-10/12">
@@ -66,11 +80,13 @@ const HeroSection = () => {
                 strokeLinecap="round"
               />
             </svg>
-            <TextResolver strings={[current.tagline]} 
-              iterations = {1}
-              timeout = {25}
-              interval={5000} 
-              className="text-md h-10 font-medium text-black/70 dark:text-white/80 leading-relaxed" />
+            <TextResolver
+              strings={[current.tagline]}
+              iterations={1}
+              timeout={25}
+              interval={5000}
+              className="text-md h-10 font-medium text-black/70 dark:text-white/80 leading-relaxed"
+            />
           </div>
 
           <GradientLabel label={current.title} size="4xl" weight="bold" />
@@ -89,23 +105,16 @@ const HeroSection = () => {
           />
 
           {current.secondaryCta && (
-            <Button
-              label={current.secondaryCta}
-              btnType="secondary"
-              onClick={() => {
-                if (current.secondaryCtaLink) {
-                  window.location.href = current.secondaryCtaLink;
-                }
-              }}
-              
-            />
+            <Button label={current.secondaryCta} btnType="secondary" onClick={
+              () => handleScroll(current.secondaryCtaLink)
+            } />
           )}
-        <p className=" absolute top-20 text-xs font-medium text-black/50 dark:text-white/50">
-          {current.infoLine}
-        </p>
+          <p className=" absolute top-20 text-xs font-medium text-black/50 dark:text-white/50">
+            {current.infoLine}
+          </p>
         </div>
       </div>
-        
+
       <Slider data={Pages} active={active} setActive={setActive} />
     </section>
   );

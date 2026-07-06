@@ -80,13 +80,24 @@ const ProblemStatement = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="flex justify-between items-center w-full pb-20 px-2.5 md:px-6 lg:px-25">
+    <section
+      ref={sectionRef}
+      className="flex justify-between items-center w-full pb-20 px-2.5 md:px-6 lg:px-25"
+    >
       <div className="flex flex-col gap-5 ">
         <div ref={labelRef} style={{ opacity: 0 }}>
-          <GradientLabel label={problemStatement.label} size="3xl" weight="normal" />
+          <GradientLabel
+            label={problemStatement.label}
+            size="3xl"
+            weight="normal"
+          />
         </div>
 
-        <h2 ref={headingRef} style={{ opacity: 0 }} className="text-md text-black dark:text-white" >
+        <h2
+          ref={headingRef}
+          style={{ opacity: 0 }}
+          className="text-md text-black dark:text-white"
+        >
           {problemStatement.heading}
         </h2>
 
@@ -101,15 +112,28 @@ const ProblemStatement = () => {
             {problemStatement.examples.map((example, index) => (
               <div
                 key={example.title}
-                className={`${index !== problemStatement.examples.length - 1 ? "border-b border-black/10 pb-4 dark:border-white/10" : "pt-4"
-                } ${ index !== 0 && index !== problemStatement.examples.length - 1 ? "py-4" : "" }`}
+                className={`${
+                  index !== problemStatement.examples.length - 1
+                    ? "border-b border-black/10 pb-4 dark:border-white/10"
+                    : ""
+                } ${index !== 0 ? "pt-4" : ""}`}
               >
-                <p className="font-mono text-[15px] leading-7 text-black dark:text-white">
-                  <span className="font-semibold text-[#D89267]">
+                <p className="font-mono text-[15px] leading-7 tracking-tight text-black dark:text-white">
+                  <span className="inline-block min-w-[140px] font-semibold text-[#D89267]">
                     {example.title}
                   </span>
-                  {" · "}
-                  {example.description}
+
+                  <span className="mx-3 text-black/40 dark:text-white/40">
+                    ·
+                  </span>
+
+                  <span className="text-black/70 dark:text-white/70">
+                    {example.desc}
+                  </span>
+
+                  <span className="ml-3 font-medium text-black dark:text-white">
+                    {example.outcome}
+                  </span>
                 </p>
               </div>
             ))}
@@ -132,10 +156,11 @@ const ProblemStatement = () => {
       </div>
 
       <div className=" h-full w-1/3 xl:block hidden aspect-square">
-        <PDBModels 
+        <PDBModels
           autoRotate={true}
-          model={problemStatement.meshUrl} 
-          nomouse={true} />
+          model={problemStatement.meshUrl}
+          nomouse={true}
+        />
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export const Pages = [
     ctaLink: "/contact",
 
     secondaryCta: "View Benchmarks",
-    secondaryCtaLink: "/benchmarks",
+    secondaryCtaLink: "benchmarks",
 
     infoLine: "Not a replacement for AlphaFold or ESMFold. The analysis layer that runs on top."
   }
