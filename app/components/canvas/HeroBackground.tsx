@@ -10,8 +10,8 @@ type Star = {
   op: number;
 };
 
-const STAR_COUNT = 280;
-const MAX_SHIFT = 70;
+const STAR_COUNT = 180;
+const MAX_SHIFT = 170;
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

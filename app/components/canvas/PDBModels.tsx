@@ -20,7 +20,7 @@ const PDBModels = ({ model }: { model: string }) => {
     });
 
     const viewer = $3Dmol.createViewer(container, {
-      backgroundColor: saved === "dark" ? "black" : "white",
+      backgroundColor: saved === "dark" ? "black" : "white"
     });
 
     fetch(model)
@@ -39,7 +39,7 @@ const PDBModels = ({ model }: { model: string }) => {
   }, [model, saved]);
 
   return (
-    <div className="relative w-full h-96 md:h-[600px] rounded-3xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-black">
+    <div className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden">
       <div ref={viewerRef} className="absolute inset-0" />
     </div>
   );

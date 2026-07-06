@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GradientLabel from "../components/GradientLabel";
 import HorizontalEntity from "../components/HorizontalEntity";
 import { WHO_ITS_FOR } from "../config/whoItsFor";
+import MediaReveal from "../components/ui/MediaReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,12 +78,14 @@ const WhoItsFor = () => {
 
       <div className="flex flex-col relative" style={{ paddingLeft: 24 }}>
         {WHO_ITS_FOR.map((item, index) => (
+          <MediaReveal src={item.hoveredContentURL} type={item.mediaType} key={item.title}>
           <HorizontalEntity
             key={item.title}
             title={item.title}
             desc={item.desc}
-            index={index}
+            index={index}        
           />
+          </MediaReveal>
         ))}
 
         <div className="border-t border-black/10 dark:border-white/10" />

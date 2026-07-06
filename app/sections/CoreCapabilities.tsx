@@ -4,8 +4,9 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GradientLabel from "../components/GradientLabel";
-import { SOLUTIONS } from "../config/solutions";
+import { heading, SOLUTIONS, subHeading } from "../config/solutions";
 import HorizontalEntity from "../components/HorizontalEntity";
+import MediaReveal from "../components/ui/MediaReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,7 +61,7 @@ const CoreCapabilities = () => {
       
       <div ref={labelRef} style={{ opacity: 0 }}>
         <GradientLabel
-          label="What FoldShield++ Does"
+          label= {heading}
           size="3xl"
           weight="normal"
         />
@@ -71,16 +72,18 @@ const CoreCapabilities = () => {
         className="max-w-xl md:max-w-2xl text-lg md:text-xl text-black/50 dark:text-white/50 leading-relaxed"
         style={{ opacity: 0 }}
       >
-        Four signals. One score. Full interpretability.
+        {subHeading}
       </p>
 
       <div className="flex flex-col relative" style={{ paddingLeft: 24 }}>
         {SOLUTIONS.map((solution, index) => (
-          <HorizontalEntity
-            key={solution.title}
-            {...solution}
-            index={index}
-          />
+          <MediaReveal src={solution.hoveredContentURL} type={solution.mediaType} key={solution.title}>
+            <HorizontalEntity
+              key={solution.title}
+              {...solution}
+              index={index}
+            />
+          </MediaReveal>
         ))}
 
         <div className="border-t border-black/10 dark:border-white/10" />

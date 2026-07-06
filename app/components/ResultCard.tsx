@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import TextResolver from './ui/TextResolverAnimation'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,7 +15,6 @@ interface ResultCardProps {
 const ResultCard = ({ percentage, component, rate, index = 0 }: ResultCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null)
   const percentageRef = useRef<HTMLParagraphElement>(null)
-  const [displayValue, setDisplayValue] = useState('0')
 
   const numericValue = parseFloat(percentage)
   const isDecimal = percentage.includes('.')
@@ -51,7 +51,7 @@ const ResultCard = ({ percentage, component, rate, index = 0 }: ResultCardProps)
         duration: 1.4,
         ease: 'power2.out',
         onUpdate: () => {
-          setDisplayValue(counter.value.toFixed(decimalPlaces))
+          // setDisplayValue(counter.value.toFixed(decimalPlaces))
         },
       },
       '-=0.35'
@@ -77,7 +77,12 @@ const ResultCard = ({ percentage, component, rate, index = 0 }: ResultCardProps)
         className="text-3xl text-[#E8B9A3] font-bold tabular-nums"
         style={{ letterSpacing: '-0.5px' }}
       >
-        {displayValue}%
+        <TextResolver strings={[percentage]}
+          iterations = {2}
+          timeout = {25}
+          interval={5000}
+          className='h-14'
+        />
       </p>
       <p className="text-xl">{component}</p>
       <p>Pass Rate</p>

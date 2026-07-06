@@ -139,7 +139,7 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
   return (
     <nav
       ref={navContainerRef}
-      className="fixed h-14 px-2.5 md:px-2.5 lg:px-25 dark:backdrop-blur-sm backdrop-blur-none flex gap-2 items-center z-50 w-full"
+      className="fixed h-14 px-2.5 md:px-2.5 lg:px-25 backdrop-blur-sm flex gap-2 items-center z-50 w-full"
     >
       <BrandLogo />
       {!onlyLogo && (

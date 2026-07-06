@@ -17,10 +17,11 @@ export default function Home() {
       <PlatformSlider />
         <Seperator />
       <Benchmarks />
-        <Seperator />
+      <ProblemStatement />
+      <Seperator />
       <CoreCapabilities />
+      <Seperator />
         <WhoItsFor />
-       <ProblemStatement />
       <Seperator />
         <FAQSection />
       <Footer />

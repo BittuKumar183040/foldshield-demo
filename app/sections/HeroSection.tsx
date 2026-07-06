@@ -6,6 +6,7 @@ import Slider from "./Slider";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Pages } from "../config/pages";
+import TextResolver from "../components/ui/TextResolverAnimation";
 
 const HeroSection = () => {
   const [active, setActive] = useState(0);
@@ -65,8 +66,11 @@ const HeroSection = () => {
                 strokeLinecap="round"
               />
             </svg>
-
-            <p data-cursor="read">{current.tagline}</p>
+            <TextResolver strings={[current.tagline]} 
+              iterations = {1}
+              timeout = {25}
+              interval={5000} 
+              className="text-md h-10 font-medium text-black/70 dark:text-white/80 leading-relaxed" />
           </div>
 
           <GradientLabel label={current.title} size="4xl" weight="bold" />
@@ -76,7 +80,7 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 relative">
           <Button
             label={current.cta}
             onClick={() => {
@@ -95,6 +99,9 @@ const HeroSection = () => {
               }}
             />
           )}
+        <p className=" absolute top-20 text-xs font-medium text-black/50 dark:text-white/50">
+          {current.infoLine}
+        </p>
         </div>
       </div>
         

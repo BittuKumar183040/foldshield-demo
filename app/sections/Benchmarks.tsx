@@ -8,8 +8,8 @@ import ResultCard from "../components/ResultCard";
 import ValidationSection from "../components/ValidationItems";
 import ParticleCanvas from "../components/ParticleCanvas";
 import dynamic from "next/dynamic";
-import { Pages } from "../config/pages";
-import { type Mesh, meshes } from "../config/benchmark";
+
+import { benchmarkLabel, type Mesh, meshes } from "../config/benchmark";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,6 @@ const Benchmarks = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const labelRef = useRef<HTMLDivElement | null>(null);
   const projectTextRef = useRef<HTMLParagraphElement | null>(null);
-  const current = Pages[0];
 
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -92,8 +91,6 @@ const Benchmarks = () => {
     return () => ctx.revert();
   }, [isDesktop]);
 
-  console.log(meshes);
-
   return (
     <section
       id="benchmarks"
@@ -113,13 +110,13 @@ const Benchmarks = () => {
 
       <div className="flex flex-col items-center gap-6 " ref={labelRef}>
         <GradientLabel
-          label={current.tagline}
+          label={benchmarkLabel.title}
           size="3xl"
           weight="normal"
           centered
         />
         <p className=" text-center w-8/12 text-md dark:text-white/80">
-          {current.desc}
+          {benchmarkLabel.desc}
         </p>
       </div>
       {isDesktop && (
@@ -166,7 +163,7 @@ const Benchmarks = () => {
                       key={header}
                       className="px-4 py-2 font-semibold tracking-wide"
                     >
-                      {header}
+                      {header !== "Category" && header}
                     </th>
                   ))}
                 </tr>

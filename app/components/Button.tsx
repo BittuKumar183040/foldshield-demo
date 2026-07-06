@@ -74,7 +74,7 @@ const Button = ({
         ) : (
           <div
             ref={iconRef}
-            className="flex items-center justify-center w-8 h-8 rounded-full border border-neutral-500/30 dark:border-white/15 bg-transparent text-black dark:text-white shrink-0 transition-all duration-300 ease-out group-hover:border-[#E8B9A3]/70 group-hover:bg-[#E8B9A3]/10"
+            className="flex items-center justify-center h-3/4 aspect-square rounded-full border border-neutral-500/30 dark:border-white/15 bg-transparent text-black dark:text-white shrink-0 transition-all duration-300 ease-out group-hover:border-[#E8B9A3]/70 group-hover:bg-[#E8B9A3]/10"
           >
             <ArrowIcon />
           </div>
