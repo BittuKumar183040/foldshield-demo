@@ -115,11 +115,10 @@ const ProblemStatement = () => {
             {problemStatement.examples.map((example, index) => (
               <div
                 key={example.title}
-                className={`${
-                  index !== problemStatement.examples.length - 1
-                    ? "border-b border-black/10 pb-4 dark:border-white/10"
-                    : ""
-                } ${index !== 0 ? "pt-4" : ""}`}
+                className={`${index !== problemStatement.examples.length - 1 ? 
+                  "border-b border-black/10 pb-4 dark:border-white/10" : "" } 
+                  ${index !== 0 ? "pt-4" : ""}
+                `}
               >
                 <p className="font-mono text-[15px] leading-7 tracking-tight text-black dark:text-white">
                   <span className="inline-block min-w-[140px] font-semibold text-[#D89267]">
@@ -133,7 +132,7 @@ const ProblemStatement = () => {
                   <span className="text-black/70 dark:text-white/70">
                     {example.desc}
                   </span>
-
+                  <br className="md:hidden block" />
                   <span className="ml-3 font-medium text-black dark:text-white">
                     {example.outcome}
                   </span>
@@ -142,7 +141,7 @@ const ProblemStatement = () => {
             ))}
           </div>
 
-          <div className="mt-6 bg-white/10 p-6">
+          <div className="mt-6 bg-white/10 p-6 backdrop-blur-xs">
             <p className="max-w-5xl text-md font-medium leading-[1.6] text-black md:text-xl dark:text-white">
               {problemStatement.conclusion.intro}
               <span className="text-black/50 dark:text-white/50">
