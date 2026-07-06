@@ -5,10 +5,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GradientLabel from "../components/GradientLabel";
 import { problemStatement } from "../config/problemstatement";
-import PDBModels from "../components/canvas/PDBModels";
-import { meshes } from "../config/benchmark";
+import dynamic from "next/dynamic";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const PDBModels = dynamic(() => import("../components/canvas/PDBModels"), {
+  ssr: false,
+});
 
 const ProblemStatement = () => {
   const sectionRef = useRef<HTMLElement>(null);

@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Pages } from "../config/pages";
 import TextResolver from "../components/ui/TextResolverAnimation";
-import Link from "next/link";
 
 const HeroSection = () => {
   const [active, setActive] = useState(0);
