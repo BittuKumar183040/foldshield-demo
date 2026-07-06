@@ -2,7 +2,6 @@
 
 import GradientLabel from "../components/GradientLabel";
 import Button from "../components/Button";
-import ArrowIcon from "../components/ArrowIcon";
 import Slider from "./Slider";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -29,17 +28,13 @@ const HeroSection = () => {
         duration: 1,
         ease: "power3.out",
         stagger: 0.2,
-      }
+      },
     );
   }, [active]);
 
   return (
-    <section
-      id="home"
-      className="relative flex w-full lg:min-h-10/12"
-    >
+    <section id="home" className="relative flex w-full lg:min-h-10/12">
       <div className="flex z-10 flex-col justify-between gap-20 p-4 lg:py-50 py-30 lg:pl-25 lg:w-10/12 transition-all">
-
         <div className="absolute top-0 left-0 h-11 w-full -z-10 hidden dark:block opacity-50 scale-150">
           <video
             src="/slider/particle.mkv"
@@ -74,11 +69,7 @@ const HeroSection = () => {
             <p data-cursor="read">{current.tagline}</p>
           </div>
 
-          <GradientLabel
-            label={current.title}
-            size="4xl"
-            weight="bold"
-          />
+          <GradientLabel label={current.title} size="4xl" weight="bold" />
 
           <p className="text-md font-medium text-black/70 dark:text-white/80 leading-relaxed">
             {current.desc}
@@ -86,8 +77,6 @@ const HeroSection = () => {
         </div>
 
         <div className="flex items-center gap-8">
-
-
           <Button
             label={current.cta}
             onClick={() => {
@@ -95,39 +84,21 @@ const HeroSection = () => {
             }}
           />
 
-
           {current.secondaryCta && (
-            <button
+            <Button
+              label={current.cta}
+              btnType="secondary"
               onClick={() => {
                 if (current.secondaryCtaLink) {
                   window.location.href = current.secondaryCtaLink;
                 }
               }}
-              className="group flex items-center justify-between gap-4 rounded-full bg-transparent backdrop-blur-sm border border-black/15 dark:border-[#E8B9A3]/25 text-black dark:text-white pl-6 pr-2 py-2 min-w-[215px] cursor-pointer transition-all duration-300 ease-out hover:border-[#E8B9A3]/55 hover:bg-[#E8B9A3]/5">
-              <span className="text-base font-medium whitespace-nowrap">
-                {current.secondaryCta}
-              </span>
-
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-neutral-500/30 dark:border-white/15 bg-transparent text-black dark:text-white shrink-0 transition-all duration-300 ease-out group-hover:border-[#E8B9A3]/70 group-hover:bg-[#E8B9A3]/10 group-hover:translate-x-1">
-                <ArrowIcon />
-              </div>
-            </button>
+            />
           )}
-
         </div>
-
-        {/* <p className="text-sm italic text-black/50 dark:text-white/50 max-w-xl">
-          Not a replacement for AlphaFold or ESMFold. The analysis layer that
-          runs on top.
-        </p> */}
-
       </div>
-
-      <Slider
-        data={Pages}
-        active={active}
-        setActive={setActive}
-      />
+        
+      <Slider data={Pages} active={active} setActive={setActive} />
     </section>
   );
 };

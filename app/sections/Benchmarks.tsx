@@ -101,7 +101,7 @@ const Benchmarks = () => {
       className="relative w-full px-2.5 md:px-2.5 lg:px-25 py-20 overflow-hidden"
     >
       {isDesktop && (
-        <div className="absolute font-bold inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute font-bold top-100 inset-0 overflow-hidden pointer-events-none">
           <p
             ref={projectTextRef}
             className="fixed bottom-0 left-0 text-[300px] md:text-[600px] opacity-10 whitespace-nowrap bg-linear-to-b from-gray-400 dark:from-white to-transparent bg-clip-text text-transparent"
@@ -111,23 +111,15 @@ const Benchmarks = () => {
         </div>
       )}
 
-      <div
-        className="flex flex-col items-center gap-8 mb-16"
-        ref={labelRef}
-      >
+      <div className="flex flex-col items-center gap-6 " ref={labelRef}>
         <GradientLabel
-          label="Independent Benchmark Results"
+          label={current.tagline}
           size="3xl"
           weight="normal"
           centered
         />
-        <p className="max-w-4xl text-center text-lg leading-9 text-black/70 dark:text-white/70">
-          <>
-          FoldShield++ has been validated across mutation prediction,
-          fold classification, structural comparison, and conformational
-          state detection—demonstrating interpretable performance beyond
-          traditional geometric metrics.
-          </>
+        <p className=" text-center w-8/12 text-md dark:text-white/80">
+          {current.desc}
         </p>
       </div>
       {isDesktop && (

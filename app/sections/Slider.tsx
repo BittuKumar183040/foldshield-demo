@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Hero from "../components/canvas/HeroBackground";
 
 type SliderData = {
   isDark: boolean;
@@ -75,6 +76,7 @@ const Slider = ({ data, active, setActive }: SliderProps) => {
   return (
     <div className="absolute top-0 left-0 h-full w-full flex-1 overflow-hidden">
       <div key={active} ref={containerRef} className=" absolute inset-0 dark:invert-0 dark:grayscale-0 invert-100 grayscale-100">
+        <Hero />
         {video ? (
           <video
             src={currentMedia}
