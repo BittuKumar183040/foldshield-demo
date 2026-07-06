@@ -106,6 +106,20 @@ const SlidingPillToggle = () => {
 
   const activeNeon = OPTIONS.find((o) => o.value === theme)!.neon;
 
+  const handleThemeChange = (e: React.MouseEvent<HTMLButtonElement>, newTheme: Theme) => {
+    e.preventDefault();
+    if (newTheme === theme) return;
+    setTheme(newTheme);
+    refreshWithDelay();
+  }
+
+  const refreshWithDelay = () => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0 });
+      location.reload();
+    }, 100);
+  };
+
   return (
     <div
       ref={containerRef}
@@ -130,7 +144,8 @@ const SlidingPillToggle = () => {
         return (
           <button
             key={value}
-            onClick={() => setTheme(value)}
+            onClick={(e) => handleThemeChange(e, value)}
+
             className="relative z-10 flex size-6 items-center justify-center rounded-md bg-transparent outline-none"
             style={{
               color: active ? neon.text : "#444444",

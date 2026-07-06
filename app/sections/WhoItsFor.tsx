@@ -3,13 +3,14 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import GradientLabel from "../components/GradientLabel";
-import { SOLUTIONS } from "../config/solutions";
 import HorizontalEntity from "../components/HorizontalEntity";
+import { WHO_ITS_FOR } from "../config/whoItsFor";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CoreCapabilities = () => {
+const WhoItsFor = () => {
   const labelRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLParagraphElement>(null);
 
@@ -54,13 +55,12 @@ const CoreCapabilities = () => {
 
   return (
     <section
-      id="capabilities"
+      id="who-its-for"
       className="flex flex-col gap-8 md:gap-10 w-full pb-20 pt-20 px-2.5 md:px-6 lg:px-25"
     >
-      
       <div ref={labelRef} style={{ opacity: 0 }}>
         <GradientLabel
-          label="What FoldShield++ Does"
+          label="Who Uses FoldShield++"
           size="3xl"
           weight="normal"
         />
@@ -71,14 +71,16 @@ const CoreCapabilities = () => {
         className="max-w-xl md:max-w-2xl text-lg md:text-xl text-black/50 dark:text-white/50 leading-relaxed"
         style={{ opacity: 0 }}
       >
-        Four signals. One score. Full interpretability.
+        Built for researchers, biotech teams, and AI platform builders who need
+        explainable structural intelligence.
       </p>
 
       <div className="flex flex-col relative" style={{ paddingLeft: 24 }}>
-        {SOLUTIONS.map((solution, index) => (
+        {WHO_ITS_FOR.map((item, index) => (
           <HorizontalEntity
-            key={solution.title}
-            {...solution}
+            key={item.title}
+            title={item.title}
+            desc={item.desc}
             index={index}
           />
         ))}
@@ -89,4 +91,4 @@ const CoreCapabilities = () => {
   );
 };
 
-export default CoreCapabilities;
+export default WhoItsFor;

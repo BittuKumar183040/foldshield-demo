@@ -101,7 +101,7 @@ const Benchmarks = () => {
       className="relative w-full px-2.5 md:px-2.5 lg:px-25 py-20 overflow-hidden"
     >
       {isDesktop && (
-        <div className="absolute font-bold inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute font-bold top-100 inset-0 overflow-hidden pointer-events-none">
           <p
             ref={projectTextRef}
             className="fixed bottom-0 left-0 text-[300px] md:text-[600px] opacity-10 whitespace-nowrap bg-linear-to-b from-gray-400 dark:from-white to-transparent bg-clip-text text-transparent"

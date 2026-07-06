@@ -8,6 +8,28 @@ export const meshes = [
       { percentage: "100", component: "KRAS", rate: "Mutation-sensitive validation"},
       { percentage: "100", component: "Cross-Family", rate: "High structural discrimination"},
       ],
+      // "statsCard": [
+      //   {
+      //     percentage: "0.894",
+      //     component: "Pearson Correlation",
+      //     rate: "With TM-score on curated benchmark",
+      //   },
+      //   {
+      //     percentage: "0.998",
+      //     component: "ROC-AUC",
+      //     rate: "Fold discrimination on 50-pair benchmark",
+      //   },
+      //   {
+      //     percentage: "10 of 12",
+      //     component: "Killer Pairs Detected",
+      //     rate: "High-difficulty cases where TM-score gives no signal",
+      //   },
+      //   {
+      //     percentage: "0.841",
+      //     component: "CATH-S20 AUC",
+      //     rate: "Large-scale fold discrimination on nonredundant dataset",
+      //   },
+      // ],
     "statsTable": {
       "Category": ["Highly Similar", "Moderate", "Dissimilar"],
       "TM-Score": ["≈ 0.9+", "Moderate-High", "0.2 - 0.3"],
