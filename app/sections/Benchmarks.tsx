@@ -128,18 +128,20 @@ const Benchmarks = () => {
       <div className="grid md:grid-cols-2 grid-cols-1 gap-2 lg:gap-5 mt-10 dark:text-white backdrop-blur-md">
         <div className="relative ">
           <PDBModels model={model.mesh} />
+          { meshes.length > 1 && (
           <div className=" absolute overflow-auto flex gap-4 bottom-0 left-0 w-full h-20 p-2 text-xs bg-gray-100/10 backdrop-blur-sm rounded-b-3xl">
             {meshes.map((mesh, idx) => (
               <button
                 key={mesh.name}
                 onClick={() => setModel(mesh)}
-                className={` bg-black/20 p-2 px-4 h-full text-[#D89267] rounded-xl border border-[#E8B9A3]/20 hover:border-[#E8B9A3]/60 transition-all
+                className={` bg-black p-2 px-4 h-full text-[#D89267] rounded-xl border border-[#E8B9A3]/20 hover:border-[#E8B9A3]/60 transition-all
                   ${model.name === meshes[idx].name ? "opacity-20 pointer-events-none" : "opacity-90"}`}
               >
                 {mesh.name}
               </button>
             ))}
           </div>
+          )}
         </div>
         <div className=" flex flex-col justify-between">
           <p></p>

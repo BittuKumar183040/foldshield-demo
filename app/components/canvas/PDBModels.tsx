@@ -1,11 +1,28 @@
-"use client"
+"use client";
+
 import { useEffect, useRef } from "react";
 import * as $3Dmol from "3dmol";
 import { Theme } from "../SlidingPillToggle";
 
-const PDBModels = ({ model }: { model: string }) => {
+interface PDBModelsProps {
+  model: string;
+  nomouse?: boolean;
+  autoRotate?: boolean;
+  rotationSpeed?: number;
+}
+
+const PDBModels = ({
+  model,
+  nomouse = false,
+  autoRotate = false,
+  rotationSpeed = 1,
+}: PDBModelsProps) => {
   const viewerRef = useRef<HTMLDivElement>(null);
-  const saved = localStorage.getItem("theme") as Theme;
+
+  const saved =
+    typeof window !== "undefined"
+      ? (localStorage.getItem("theme") as Theme)
+      : "light";
 
   const preventZoom = (e: WheelEvent) => {
     e.stopPropagation();
@@ -15,12 +32,14 @@ const PDBModels = ({ model }: { model: string }) => {
     if (!viewerRef.current) return;
 
     const container = viewerRef.current;
+
     container.addEventListener("wheel", preventZoom, {
       passive: false,
     });
 
     const viewer = $3Dmol.createViewer(container, {
-      backgroundColor: saved === "dark" ? "black" : "white"
+      backgroundColor: saved === "dark" ? "black" : "white",
+      nomouse,
     });
 
     fetch(model)
@@ -30,16 +49,21 @@ const PDBModels = ({ model }: { model: string }) => {
         viewer.setStyle({}, { cartoon: { color: "spectrum" } });
         viewer.zoomTo();
         viewer.render();
+
+        if (autoRotate) {
+          viewer.spin("y", rotationSpeed);
+        }
       });
 
     return () => {
       container.removeEventListener("wheel", preventZoom);
+      viewer.spin(false);
       viewer.clear();
     };
-  }, [model, saved]);
+  }, [model, nomouse, autoRotate, rotationSpeed, saved]);
 
   return (
-    <div className="relative w-full h-96 md:h-[600px] rounded-3xl overflow-hidden">
+    <div className="relative h-96 w-full overflow-hidden rounded-3xl md:h-[600px]">
       <div ref={viewerRef} className="absolute inset-0" />
     </div>
   );

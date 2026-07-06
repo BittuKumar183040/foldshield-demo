@@ -90,13 +90,14 @@ const HeroSection = () => {
 
           {current.secondaryCta && (
             <Button
-              label={current.cta}
+              label={current.secondaryCta}
               btnType="secondary"
               onClick={() => {
                 if (current.secondaryCtaLink) {
                   window.location.href = current.secondaryCtaLink;
                 }
               }}
+              
             />
           )}
         <p className=" absolute top-20 text-xs font-medium text-black/50 dark:text-white/50">

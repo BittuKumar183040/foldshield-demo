@@ -56,20 +56,16 @@ const CoreCapabilities = () => {
   return (
     <section
       id="capabilities"
-      className="flex flex-col gap-8 md:gap-10 w-full pb-20 pt-20 px-2.5 md:px-6 lg:px-25"
+      className="flex flex-col gap-5 w-full pb-20 pt-20 px-2.5 md:px-6 lg:px-25"
     >
       
       <div ref={labelRef} style={{ opacity: 0 }}>
-        <GradientLabel
-          label= {heading}
-          size="3xl"
-          weight="normal"
-        />
+        <GradientLabel label= {heading} size="3xl" weight="normal" />
       </div>
 
       <p
         ref={headingRef}
-        className="max-w-xl md:max-w-2xl text-lg md:text-xl text-black/50 dark:text-white/50 leading-relaxed"
+        className="text-md text-black dark:text-white"
         style={{ opacity: 0 }}
       >
         {subHeading}

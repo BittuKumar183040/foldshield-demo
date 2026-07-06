@@ -29,15 +29,6 @@ export const meshes = [
 ]
 
 
-
-
-
-
-
-
-
-
-
 export type Meshes = typeof meshes;
 export type Mesh = (typeof meshes)[number];
 export type StatsCardItem = Mesh["statsCard"][number];

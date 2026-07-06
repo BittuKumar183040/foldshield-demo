@@ -1,4 +1,6 @@
 import React from "react";
+import { Pages } from "../config/pages";
+import Button from "../components/Button";
 
 const CTA = () => {
   return (
@@ -10,24 +12,20 @@ const CTA = () => {
               Ready to Evaluate FoldShield++
             </p>
 
-            <h2 className="text-4xl font-semibold leading-tight md:text-5xl">
+            <h2 className="text-2xl font-semibold leading-tight md:text-4xl">
               See what your current tools are missing.
             </h2>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-              Book a 30-minute demo. We'll run FoldShield++ on structures from
+              Book a 30-minute demo. We&apos;ll run FoldShield++ on structures from
               your own dataset.
             </p>
           </div>
 
           <a
-            href="/contact"
-            className="group inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-[#D89267] hover:text-white"
+            href={Pages[0].ctaLink}
           >
-            Book a Demo
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            <Button label={Pages[0].cta} btnType="secondary" />
           </a>
         </div>
       </div>

@@ -15,14 +15,14 @@ const ArrowIcon = () => {
         <path
           d="M4 12H18"
           stroke="currentColor"
-          strokeWidth="2.5"
+          strokeWidth="1.5"
           strokeLinecap="round"
         />
 
         <path
           d="M12 6L18 12L12 18"
           stroke="currentColor"
-          strokeWidth="2.5"
+          strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />

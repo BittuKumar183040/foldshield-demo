@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GradientLabel from "../components/GradientLabel";
 import { problemStatement } from "../config/problemstatement";
+import PDBModels from "../components/canvas/PDBModels";
+import { meshes } from "../config/benchmark";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,71 +80,62 @@ const ProblemStatement = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="flex w-full flex-col gap-6 px-2.5 py-16 md:gap-8 md:px-6 lg:px-25"
-    >
-      <div ref={labelRef} style={{ opacity: 0 }}>
-        <GradientLabel label={problemStatement.label} size="3xl" weight="normal" />
+    <section ref={sectionRef} className="flex justify-between items-center w-full pb-20 px-2.5 md:px-6 lg:px-25">
+      <div className="flex flex-col gap-5 ">
+        <div ref={labelRef} style={{ opacity: 0 }}>
+          <GradientLabel label={problemStatement.label} size="3xl" weight="normal" />
+        </div>
+
+        <h2 ref={headingRef} style={{ opacity: 0 }} className="text-md text-black dark:text-white" >
+          {problemStatement.heading}
+        </h2>
+
+        <div ref={contentRef} className="max-w-4xl space-y-2">
+          {problemStatement.paragraphs.map((paragraph, index) => (
+            <p key={index} className="text-md text-black/70 dark:text-white/70">
+              {paragraph}
+            </p>
+          ))}
+
+          <div className="mt-8 rounded-2xl border border-black/10 bg-white/70 p-6 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.02]">
+            {problemStatement.examples.map((example, index) => (
+              <div
+                key={example.title}
+                className={`${index !== problemStatement.examples.length - 1 ? "border-b border-black/10 pb-4 dark:border-white/10" : "pt-4"
+                } ${ index !== 0 && index !== problemStatement.examples.length - 1 ? "py-4" : "" }`}
+              >
+                <p className="font-mono text-[15px] leading-7 text-black dark:text-white">
+                  <span className="font-semibold text-[#D89267]">
+                    {example.title}
+                  </span>
+                  {" · "}
+                  {example.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 bg-white/10 p-6">
+            <p className="max-w-5xl text-md font-medium leading-[1.6] text-black md:text-xl dark:text-white">
+              {problemStatement.conclusion.intro}
+              <span className="text-black/50 dark:text-white/50">
+                {problemStatement.conclusion.muted}
+              </span>
+              <br />
+              <span className="text-[#D89267]">
+                {problemStatement.conclusion.highlight}
+              </span>
+              {problemStatement.conclusion.ending}
+            </p>
+          </div>
+        </div>
       </div>
 
-      <h2
-        ref={headingRef}
-        style={{ opacity: 0 }}
-        className="text-2xl font-semibold text-black dark:text-white"
-      >
-        {problemStatement.heading}
-      </h2>
-
-      <div ref={contentRef} className="max-w-4xl space-y-2">
-        {problemStatement.paragraphs.map((paragraph, index) => (
-          <p key={index} className="text-md text-black/70 dark:text-white/70">
-            {paragraph}
-          </p>
-        ))}
-
-        <div className="mt-8 rounded-2xl border border-black/10 bg-white/70 p-6 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.02]">
-          {problemStatement.examples.map((example, index) => (
-            <div
-              key={example.title}
-              className={`${
-                index !== problemStatement.examples.length - 1
-                  ? "border-b border-black/10 pb-4 dark:border-white/10"
-                  : "pt-4"
-              } ${
-                index !== 0 && index !== problemStatement.examples.length - 1
-                  ? "py-4"
-                  : ""
-              }`}
-            >
-              <p className="font-mono text-[15px] leading-7 text-black dark:text-white">
-                <span className="font-semibold text-[#D89267]">
-                  {example.title}
-                </span>
-                {" · "}
-                {example.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6">
-          <p className="max-w-5xl text-xl font-medium leading-[1.6] text-black md:text-2xl dark:text-white">
-            {problemStatement.conclusion.intro}
-
-            <span className="text-black/50 dark:text-white/50">
-              {problemStatement.conclusion.muted}
-            </span>
-
-            <br />
-
-            <span className="text-[#D89267]">
-              {problemStatement.conclusion.highlight}
-            </span>
-
-            {problemStatement.conclusion.ending}
-          </p>
-        </div>
+      <div className=" h-full w-1/3 xl:block hidden aspect-square">
+        <PDBModels 
+          autoRotate={true}
+          model={problemStatement.meshUrl} 
+          nomouse={true} />
       </div>
     </section>
   );

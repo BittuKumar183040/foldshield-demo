@@ -8,20 +8,23 @@ import Benchmarks from "./sections/Benchmarks";
 import Navbar from "./sections/Navbar";
 import WhoItsFor from "./sections/WhoItsFor";
 import ProblemStatement from "./sections/ProblemStatement";
+import CTA from "./sections/CTA";
 
 export default function Home() {
   return (<>
     <Navbar />
     <div className="flex flex-col flex-1 items-center justify-center bg-white dark:bg-black">
         <HeroSection />
-      <PlatformSlider />
-        <Seperator />
-      <Benchmarks />
-      <ProblemStatement />
+        <PlatformSlider />
       <Seperator />
-      <CoreCapabilities />
+        <Benchmarks />
+        <ProblemStatement />
+      <Seperator />
+        <CoreCapabilities />
       <Seperator />
         <WhoItsFor />
+      <Seperator />
+        <CTA />
       <Seperator />
         <FAQSection />
       <Footer />
