@@ -129,7 +129,7 @@ const Benchmarks = () => {
             ))}
           </div>
 
-          <div className="overflow-scroll rounded-2xl mt-2 text-xs border border-[#E8B9A3]/20 backdrop-blur-md">
+          <div className="overflow-auto rounded-2xl mt-2 text-xs border border-[#E8B9A3]/20 backdrop-blur-md">
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-[#E8B9A3]/20 text-[#D89267]">

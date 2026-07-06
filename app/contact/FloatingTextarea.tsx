@@ -16,7 +16,7 @@ const FloatingTextarea = ({ value, onChange }: FloatingTextareaProps) => {
   const floatUp = () => {
     if (!labelRef.current || !lineRef.current) return;
 
-    gsap.to(labelRef.current, { y: -22, scale: 1, color: "#00FFFF" });
+    gsap.to(labelRef.current, { y: -22, scale: 1, color: "#D89267" });
     gsap.to(lineRef.current, { scaleX: 1});
   };
 
@@ -57,7 +57,7 @@ const FloatingTextarea = ({ value, onChange }: FloatingTextareaProps) => {
 
       <span
         ref={lineRef}
-        className="absolute left-0 bottom-0 h-[1.5px] w-full bg-cyan-400"
+        className="absolute left-0 bottom-0 h-[1.5px] w-full bg-[#D89267]"
       />
     </div>
   );

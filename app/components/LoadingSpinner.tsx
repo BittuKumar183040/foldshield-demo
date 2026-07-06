@@ -17,14 +17,14 @@ const LoadingSpinner = ({
         <div className="absolute inset-0 rounded-full border-2 border-cyan-500/20" />
 
         {/* Rotating Ring */}
-        <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-cyan-400 animate-spin" />
+        <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-[#D89267] animate-spin" />
 
         {/* Inner Pulse */}
-        <div className="absolute inset-2 rounded-full border border-cyan-300/40 animate-pulse" />
+        <div className="absolute inset-2 rounded-full border border-[#D89267]/40 animate-pulse" />
       </div>
 
       {/* Animated Dots */}
-      <div className="flex items-center gap-1 text-sm tracking-wide text-cyan-300">
+      <div className="flex items-center gap-1 text-sm tracking-wide text-[#D89267]">
         <span className="animate-pulse">{label}</span>
 
         <span

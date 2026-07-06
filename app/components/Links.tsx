@@ -60,7 +60,7 @@ export const HorizontalScale = ({
                     className="
                       relative py-2 font-bold text-[15px] tracking-wide
                       text-gray-600 dark:text-gray-400
-                      hover:text-cyan-500 dark:hover:text-cyan-400
+                      hover:text-[#D89267] dark:hover:text-[#D89267]
                       hover:translate-x-1.5 transition-all duration-200
                       after:absolute after:bottom-1.5 after:left-0
                       after:h-px after:w-full after:bg-current

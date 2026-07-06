@@ -29,7 +29,7 @@ const FloatingField = ({
     gsap.to(labelRef.current, {
       y: -22,
       scale: 0.78,
-      color: "#22d3ee",
+      color: "#D89267",
       transformOrigin: "left center",
       duration: 0.35,
     });
@@ -114,7 +114,7 @@ const FloatingField = ({
 
       <span
         ref={lineRef}
-        className="absolute bottom-0 left-0 h-[1.5px] w-full bg-cyan-400"
+        className="absolute bottom-0 left-0 h-[1.5px] w-full bg-[#D89267]"
       />
     </div>
   );

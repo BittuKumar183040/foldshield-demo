@@ -73,7 +73,7 @@ const ProductCard = ({
 
       gsap.to(indexRef.current, {
         color: hovered
-          ? '#06b6d4'
+          ? '#D89267'
           : (isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.18)'),
         duration: 0.25,
       })
@@ -152,7 +152,7 @@ const ProductCard = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       data-cursor="read"
-      className=" product-card relative backdrop-blur-xl flex flex-col gap-5 p-6 bg-gray-50/20 dark:bg-black/10 text-black dark:text-white border border-black/10 dark:border-white/10 border-t-black/10 dark:border-t-white/10 hover:border-t-cyan-400/40 transition-all duration-300"
+      className=" product-card relative backdrop-blur-xl flex flex-col gap-5 p-6 bg-gray-50/20 dark:bg-black/10 text-black dark:text-white border border-black/10 dark:border-white/10 border-t-black/10 dark:border-t-white/10 hover:border-t-[#D89267] transition-all duration-300"
     >
       <div
         ref={barRef}
@@ -165,7 +165,7 @@ const ProductCard = ({
           transformOrigin: 'center',
           width: 2,
           height: '60%',
-          background: '#22d3ee',
+          background: '#D89267',
           borderRadius: 999,
         }}
       />
