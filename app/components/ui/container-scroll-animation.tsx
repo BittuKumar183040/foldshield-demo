@@ -12,7 +12,7 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: [ "start end", "end start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -28,12 +28,18 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [0.92, 0.6];
+    return isMobile ? [0.95, 0.9] : [0.92, 0.6];
+  };
+  const translatePlatfrom = () => {
+    return isMobile ? [0, 100] : [0, -100];
+  };
+  const rotatePlatform = () => {
+    return isMobile ? [0, 0, 0] : [10, 0, 0];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 0.25, 1], [10, 0, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.8], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+  const rotate = useTransform(scrollYProgress, [0, 0.25, 1], rotatePlatform());
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0, 0.5], translatePlatfrom());
 
   return (
     <div
@@ -82,7 +88,7 @@ export const Card = ({
   return (
     <motion.div
       style={{ rotateX: rotate, scale }}
-      className="mx-auto -translate-y-10 w-full rounded-3xl shadow-2xl"
+      className={`mx-auto md:-translate-y-10 w-full rounded-3xl shadow-2xl`}
     >
       <div className="h-full w-full bg-gray-100 dark:bg-black rounded-3xl overflow-hidden">
         {children}

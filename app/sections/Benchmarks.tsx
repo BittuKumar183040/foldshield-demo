@@ -53,39 +53,12 @@ const Benchmarks = () => {
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
+            start: "1000 bottom",
+            end: "4000 top",
             scrub: true,
           },
         },
       );
-
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        pinSpacing: false,
-      });
-
-      const cards = gsap.utils.toArray(".product-card");
-
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-      cards.forEach((card: any, i) => {
-        gsap.fromTo(
-          card,
-          { scale: 0.92 },
-          {
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-              end: "center 50%",
-              scrub: true,
-            },
-          },
-        );
-      });
     }, sectionRef);
 
     return () => ctx.revert();

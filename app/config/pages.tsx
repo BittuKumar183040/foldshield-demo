@@ -11,7 +11,7 @@ export const Pages = [
 
   
     cta: "Book a Demo",
-    ctaLink: "/contact",
+    ctaLink: "/enquiry",
 
     secondaryCta: "View Benchmarks",
     secondaryCtaLink: "benchmarks",

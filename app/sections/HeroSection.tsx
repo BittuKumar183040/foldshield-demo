@@ -48,8 +48,8 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative flex w-full lg:min-h-10/12">
-      <div className="flex z-10 flex-col justify-between gap-20 p-4 lg:py-50 py-30 lg:pl-25 lg:w-10/12 transition-all">
-        <div className="absolute top-0 left-0 h-11 w-full -z-10 hidden dark:block opacity-50 scale-150">
+      <div className="flex z-10 flex-col overflow-hidden justify-between gap-20 p-4 lg:py-50 py-30 lg:pl-25 lg:w-10/12 transition-all">
+        <div className="absolute top-0 left-0 h-11 w-full -z-10 hidden dark:block opacity-50 ">
           <video
             src="/slider/particle.mkv"
             muted
