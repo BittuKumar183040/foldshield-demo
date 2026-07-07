@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 
 interface MediaRevealProps {
   children: ReactNode;
-  src: string;
+  src?: string;
   type?: "image" | "video";
   width?: number;
   height?: number;
@@ -68,7 +68,7 @@ export default function MediaReveal({
         className="pointer-events-none fixed left-0 top-0 z-[9999] overflow-hidden rounded-2xl opacity-0 scale-75 shadow-2xl will-change-transform"
         style={{ width, height }}
       >
-        {isActive &&
+        {isActive && src &&
           (type === "image" ? (
             <img src={src} loading="lazy" decoding="async" className="h-full w-full object-cover" draggable={false} />
           ) : (

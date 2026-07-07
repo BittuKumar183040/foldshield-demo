@@ -30,7 +30,7 @@ const WhoItsFor = () => {
             start: "top 90%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     }
 
@@ -49,7 +49,7 @@ const WhoItsFor = () => {
             start: "top 90%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     }
   }, []);
@@ -60,11 +60,7 @@ const WhoItsFor = () => {
       className="flex flex-col gap-8 md:gap-10 w-full pb-20 pt-20 px-2.5 md:px-6 lg:px-25"
     >
       <div ref={labelRef} style={{ opacity: 0 }}>
-        <GradientLabel
-          label={heading}
-          size="3xl"
-          weight="normal"
-        />
+        <GradientLabel label={heading} size="3xl" weight="normal" />
       </div>
 
       <p
@@ -77,13 +73,17 @@ const WhoItsFor = () => {
 
       <div className="flex flex-col relative" style={{ paddingLeft: 24 }}>
         {WHO_ITS_FOR.map((item, index) => (
-          <MediaReveal src={item.hoveredContentURL} type={item.mediaType} key={item.title}>
-          <HorizontalEntity
+          <MediaReveal
+            src={item.hoveredContentURL}
+            type={item.mediaType}
             key={item.title}
-            title={item.title}
-            desc={item.desc}
-            index={index}        
-          />
+          >
+            <HorizontalEntity
+              key={item.title}
+              title={item.title}
+              desc={item.desc}
+              index={index}
+            />
           </MediaReveal>
         ))}
 

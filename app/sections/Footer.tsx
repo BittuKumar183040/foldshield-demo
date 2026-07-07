@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
 
           <p className="text-lg leading-relaxed dark:text-gray-300">
-            A Symbolic–Topological Structural Intelligence Engine for Protein Analysis
+            A Symbolic – Topological Structural Intelligence Engine for Protein Analysis
           </p>
 
           <div className="flex flex-col gap-1">
