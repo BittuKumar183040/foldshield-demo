@@ -34,7 +34,7 @@ const PDBModels = ({
     const container = viewerRef.current;
 
     container.addEventListener("wheel", preventZoom, {
-      passive: false,
+      passive: false
     });
 
     const viewer = $3Dmol.createViewer(container, {

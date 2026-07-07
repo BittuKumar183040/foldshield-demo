@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import GradientLabel from "../components/GradientLabel";
 import HorizontalEntity from "../components/HorizontalEntity";
-import { WHO_ITS_FOR } from "../config/whoItsFor";
+import { heading, subHeading, WHO_ITS_FOR } from "../config/whoItsFor";
 import MediaReveal from "../components/ui/MediaReveal";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -61,7 +61,7 @@ const WhoItsFor = () => {
     >
       <div ref={labelRef} style={{ opacity: 0 }}>
         <GradientLabel
-          label="Who Uses FoldShield++"
+          label={heading}
           size="3xl"
           weight="normal"
         />
@@ -72,8 +72,7 @@ const WhoItsFor = () => {
         className="max-w-xl md:max-w-2xl text-lg md:text-xl text-black/50 dark:text-white/50 leading-relaxed"
         style={{ opacity: 0 }}
       >
-        Built for researchers, biotech teams, and AI platform builders who need
-        explainable structural intelligence.
+        {subHeading}
       </p>
 
       <div className="flex flex-col relative" style={{ paddingLeft: 24 }}>
