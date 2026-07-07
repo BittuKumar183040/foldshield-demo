@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import * as $3Dmol from "3dmol";
+import { useEffect, useRef, useState } from "react";
+import { Stage, Component } from "ngl";
 import { Theme } from "../SlidingPillToggle";
 
 interface PDBModelsProps {
@@ -11,62 +11,135 @@ interface PDBModelsProps {
   rotationSpeed?: number;
 }
 
-const PDBModels = ({
+export default function PDBModels({
   model,
   nomouse = false,
   autoRotate = false,
-  rotationSpeed = 1,
-}: PDBModelsProps) => {
+}: PDBModelsProps) {
   const viewerRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<Stage | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const saved =
+  const theme =
     typeof window !== "undefined"
       ? (localStorage.getItem("theme") as Theme)
       : "light";
 
-  const preventZoom = (e: WheelEvent) => {
+  const preventPageScroll = (e: WheelEvent) => {
+    e.preventDefault();
     e.stopPropagation();
   };
 
+
   useEffect(() => {
-    if (!viewerRef.current) return;
+    if (!viewerRef.current || !model) return;
 
-    const container = viewerRef.current;
+    viewerRef.current.addEventListener("wheel", preventPageScroll, { passive: false });
 
-    container.addEventListener("wheel", preventZoom, {
-      passive: false
+    let disposed = false;
+    setLoading(true);
+    setError(null);
+
+    viewerRef.current.innerHTML = "";
+
+    const stage = new Stage(viewerRef.current, {
+      backgroundColor: theme === "dark" ? "black" : "white",
     });
 
-    const viewer = $3Dmol.createViewer(container, {
-      backgroundColor: saved === "dark" ? "black" : "white",
-      nomouse,
+    stageRef.current = stage;
+
+    stage.setParameters({
+      quality: "high",
+      sampleLevel: 2,
+      cameraFov: 35,
+      clipNear: 0,
+      fogNear: 50,
+      fogFar: 100,
     });
 
-    fetch(model)
-      .then((res) => res.text())
-      .then((pdbData) => {
-        viewer.addModel(pdbData, "pdb");
-        viewer.setStyle({}, { cartoon: { color: "spectrum" } });
-        viewer.zoomTo();
-        viewer.render();
+    async function loadProtein() {
+      try {
+        
+        const res = await fetch(model);
+        if (!res.ok) throw new Error(`Unable to fetch PDB (${res.status})`);
+
+        const pdbText = await res.text();
+
+        if (pdbText.trim().startsWith("<")) {
+          throw new Error(
+            "Fetched file looks like HTML, not a PDB file — check the model URL/path."
+          );
+        }
+
+        if (disposed) return;
+
+        const blob = new Blob([pdbText], { type: "text/plain" });
+
+        const component = await stage.loadFile(blob, {
+          ext: "pdb",
+          defaultRepresentation: false,
+        }) as Component;
+
+        if (disposed || !component) return;
+
+        component.addRepresentation("cartoon", {colorScheme: "chainid",quality: "high",smoothSheet: true });
+        component.addRepresentation("ball+stick", {sele: "hetero and not water",colorScheme: "element",multipleBond: true });
+        component.addRepresentation("spacefill", {sele: "water",color: "red",scale: 0.25,opacity: 0.6 });
+
+        component.autoView(0);
+        stage.autoView(0);
+        stage.viewer.requestRender();
 
         if (autoRotate) {
-          viewer.spin("y", rotationSpeed);
+          stage.setSpin(true);
         }
-      });
+
+        setLoading(false);
+      } catch (e) {
+        if (disposed) return;
+        console.error("Failed loading PDB:", e);
+        setError(e instanceof Error ? e.message : "Failed to load structure");
+        setLoading(false);
+      }
+    }
+
+    loadProtein();
+
+    if (nomouse) {
+      viewerRef.current.style.pointerEvents = "none";
+      stage.mouseControls.clear();
+    }
+
+    const resizeObserver = new ResizeObserver(() => stage.handleResize());
+    resizeObserver.observe(viewerRef.current);
 
     return () => {
-      container.removeEventListener("wheel", preventZoom);
-      viewer.spin(false);
-      viewer.clear();
+      disposed = true;
+      resizeObserver.disconnect();
+      stage.setSpin(false);
+      stage.dispose();
+      viewerRef?.current?.removeEventListener("wheel", preventPageScroll, {
+        capture: true,
+      });
     };
-  }, [model, nomouse, autoRotate, rotationSpeed, saved]);
+  }, [model, autoRotate, nomouse, theme]);
 
   return (
     <div className="relative h-96 w-full overflow-hidden rounded-3xl md:h-[600px]">
       <div ref={viewerRef} className="absolute inset-0" />
+
+      {loading && !error && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="text-sm text-gray-400">Loading structure…</span>
+        </div>
+      )}
+
+      {error && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="text-sm text-red-500">{error}</span>
+        </div>
+      )}
     </div>
   );
-};
-
-export default PDBModels;
+}

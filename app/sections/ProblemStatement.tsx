@@ -115,8 +115,11 @@ const ProblemStatement = () => {
             {problemStatement.examples.map((example, index) => (
               <div
                 key={example.title}
-                className={`${index !== problemStatement.examples.length - 1 ? 
-                  "border-b border-black/10 pb-4 dark:border-white/10" : "" } 
+                className={`${
+                  index !== problemStatement.examples.length - 1
+                    ? "border-b border-black/10 pb-4 dark:border-white/10"
+                    : ""
+                } 
                   ${index !== 0 ? "pt-4" : ""}
                 `}
               >

@@ -72,7 +72,7 @@ const ResultCard = ({ percentage, component, rate, index = 0 }: ResultCardProps)
       className="flex flex-col justify-between gap-1 p-4 rounded-2xl text-xs border border-[#E8B9A3]/20 backdrop-blur-md cursor-default"
       style={{ willChange: 'transform, opacity' }}
     >
-      <p
+      <div
         ref={percentageRef}
         className="text-3xl text-[#E8B9A3] font-bold tabular-nums"
         style={{ letterSpacing: '-0.5px' }}
@@ -83,7 +83,7 @@ const ResultCard = ({ percentage, component, rate, index = 0 }: ResultCardProps)
           interval={5000}
           className='h-14'
         />
-      </p>
+      </div>
       <p className="text-xl">{component}</p>
       <p>Pass Rate</p>
       <p className="text-md text-[#D89267]">{rate}</p>

@@ -9,6 +9,7 @@ import { Pages } from "../config/pages";
 import TextResolver from "../components/ui/TextResolverAnimation";
 import ParticleEmit from "../components/canvas/ParticleEmit";
 import Hero from "../components/canvas/HeroBackground";
+import Image from "next/image";
 
 const HeroSection = () => {
   const [active, setActive] = useState(0);
@@ -52,14 +53,11 @@ const HeroSection = () => {
     <section id="home" className="relative flex w-full lg:min-h-10/12">
       <div className="flex z-10 flex-col overflow-hidden justify-between gap-20 p-4 lg:py-50 py-30 lg:pl-25 lg:w-10/12 transition-all">
         <div className="absolute top-0 left-0 h-11 w-full -z-10 hidden dark:block opacity-50 ">
-          <video
-            src="/slider/particle.mkv"
-            muted
-            autoPlay
-            loop
-            playsInline
-            className="w-full h-full object-fill dark:invert-0 dark:grayscale-0 invert-100 grayscale-100 rotate-180"
-          />
+          <Image
+            src="/slider/light.jpg"
+            width={0}
+            height={0}
+            className="w-full h-full object-fill dark:invert-0 dark:grayscale-0 invert-100 grayscale-100 rotate-180" alt={""}          />
         </div>
 
         <div
