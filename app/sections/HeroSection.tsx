@@ -116,8 +116,11 @@ const HeroSection = () => {
         </div>
       </div>
       <Slider data={Pages} active={active} setActive={setActive} />
-      <div className="absolute -bottom-15 left-1/2 -translate-x-1/2 h-90 w-full">
+      <div className="absolute hidden dark:block -bottom-15 left-1/2 -translate-x-1/2 h-90 w-full">
         <ParticleEmit particleColor="#E8B9A3"/>
+      </div>
+      <div className="absolute dark:hidden block -bottom-15 left-1/2 -translate-x-1/2 h-90 w-full">
+        <ParticleEmit particleColor="#7e7e7e"/>
       </div>
     </section>
   );

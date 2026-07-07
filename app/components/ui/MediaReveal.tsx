@@ -24,12 +24,14 @@ export default function MediaReveal({
 
   const [isActive, setIsActive] = useState(false);
 
-  const show = () => {
+  const show = (e: React.MouseEvent) => {
     setIsActive(true);
 
     gsap.killTweensOf(mediaRef.current);
 
     gsap.to(mediaRef.current, {
+      x: e.clientX,
+      y: e.clientY - height / 2,
       opacity: 1,
       scale: 1,
       duration: 0.25,
@@ -66,7 +68,7 @@ export default function MediaReveal({
       <div
         ref={mediaRef}
         className="pointer-events-none fixed left-0 top-0 z-[9999] overflow-hidden rounded-2xl opacity-0 scale-75 shadow-2xl will-change-transform"
-        style={{ width, height }}
+        style={{ width: src && width, height: src && height }}
       >
         {isActive && src &&
           (type === "image" ? (

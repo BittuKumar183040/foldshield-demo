@@ -52,7 +52,7 @@ const Button = ({
         ${
           btnType === "primary"
             ? "border-[#E8B9A3] bg-[#E8B9A3] text-black hover:border-white hover:bg-[#F5F5F5]"
-            : "bg-transparent backdrop-blur-sm border-black/15 dark:border-[#E8B9A3]/25 text-black dark:text-white hover:border-[#E8B9A3]/55 hover:bg-[#E8B9A3]/5"
+            : "bg-transparent backdrop-blur-[1px] border-black/15 dark:border-[#E8B9A3]/25 text-black dark:text-white hover:border-[#E8B9A3]/55 hover:bg-[#E8B9A3]/5"
         }`}
     >
       <span className="text-base font-semibold whitespace-nowrap">
