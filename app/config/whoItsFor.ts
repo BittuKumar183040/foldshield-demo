@@ -17,19 +17,19 @@ export const WHO_ITS_FOR: WhoItsForItem[] = [
   {
     title: "Researchers",
     desc: "Interpretable per-signal scores, reproducible benchmarks, and honest AUC numbers on nonredundant datasets. Designed to hold up under peer review.",
-    hoveredContentURL: "whoItsFor/Researchers.mp4",
+    hoveredContentURL: "whoItsFor/Researchers.mov",
     mediaType: "video",
   },
   {
     title: "Biotech & Pharma",
     desc: "Mutation impact scoring on clinically relevant genes (BRCA1/2, KRAS, TP53) without molecular dynamics. Faster variant triage, earlier in the pipeline.",
-    hoveredContentURL: "whoItsFor/BiotechPharma.mp4",
+    hoveredContentURL: "whoItsFor/BiotechPharma.mov",
     mediaType: "video",
   },
   {
     title: "Platform Builders",
     desc: "Symbolic and topological encodings are discrete and compressible—designed for search and clustering at scale. Runs on top of AlphaFold and ESMFold outputs.",
-    hoveredContentURL: "whoItsFor/PlatformBuilders.mp4",
+    hoveredContentURL: "whoItsFor/PlatformBuilders.mov",
     mediaType: "video",
   },
 ];

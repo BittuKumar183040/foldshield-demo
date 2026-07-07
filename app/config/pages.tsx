@@ -6,7 +6,8 @@ export const Pages = [
     desc: "FoldShield++ detects mutation impact, fold switching, and conformational shifts using symbolic topology – catching what TM-score, RMSD, and LDDT systematically miss.",
     tagline: "Structural Intelligence Engine — RexCrux Research Laboratory",
 
-    image:  BaseURL + "particle.mkv",
+    // image:  BaseURL + "particle.mkv",
+    image:  BaseURL + "light.jpg",
     isDark: false,
 
   

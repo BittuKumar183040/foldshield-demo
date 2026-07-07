@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Pages } from "../config/pages";
 import TextResolver from "../components/ui/TextResolverAnimation";
+import ParticleEmit from "../components/canvas/ParticleEmit";
+import Hero from "../components/canvas/HeroBackground";
 
 const HeroSection = () => {
   const [active, setActive] = useState(0);
@@ -113,8 +115,10 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-
       <Slider data={Pages} active={active} setActive={setActive} />
+      <div className="absolute -bottom-15 left-1/2 -translate-x-1/2 h-90 w-full">
+        <ParticleEmit particleColor="#E8B9A3"/>
+      </div>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 interface MediaRevealProps {
@@ -22,7 +22,11 @@ export default function MediaReveal({
 }: MediaRevealProps) {
   const mediaRef = useRef<HTMLDivElement>(null);
 
+  const [isActive, setIsActive] = useState(false);
+
   const show = () => {
+    setIsActive(true);
+
     gsap.killTweensOf(mediaRef.current);
 
     gsap.to(mediaRef.current, {
@@ -55,25 +59,21 @@ export default function MediaReveal({
 
   return (
     <>
-      <div
-        className={className}
-        onMouseEnter={show}
-        onMouseLeave={hide}
-        onMouseMove={move}
-      >
+      <div className={className} onMouseEnter={show} onMouseLeave={hide} onMouseMove={move} >
         {children}
       </div>
 
       <div
         ref={mediaRef}
-        className=" pointer-events-none fixed left-0 top-0 z-[9999] overflow-hidden rounded-2xl opacity-0 scale-75 shadow-2xl will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] overflow-hidden rounded-2xl opacity-0 scale-75 shadow-2xl will-change-transform"
         style={{ width, height }}
       >
-        {type === "image" ? (
-          <img src={src} className="h-full w-full object-cover" draggable={false} />
-        ) : (
-          <video src={src} autoPlay muted loop playsInline className="h-full w-full object-cover" />
-        )}
+        {isActive &&
+          (type === "image" ? (
+            <img src={src} loading="lazy" decoding="async" className="h-full w-full object-cover" draggable={false} />
+          ) : (
+            <video src={src} autoPlay muted loop playsInline preload="none" className="h-full w-full object-cover" />
+          ))}
       </div>
     </>
   );

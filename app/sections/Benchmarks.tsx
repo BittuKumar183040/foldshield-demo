@@ -74,7 +74,7 @@ const Benchmarks = () => {
         <div className="absolute font-bold top-100 inset-0 overflow-hidden pointer-events-none">
           <p
             ref={projectTextRef}
-            className="fixed bottom-0 left-0 text-[300px] md:text-[600px] opacity-10 whitespace-nowrap bg-linear-to-b from-gray-400/50 dark:from-white/50 to-transparent bg-clip-text text-transparent"
+            className="fixed bottom-0 left-0 text-[300px] md:text-[600px] opacity-10 whitespace-nowrap bg-linear-to-b from-gray-400/80 dark:from-white/80 to-transparent bg-clip-text text-transparent"
           >
             FOLDSHIELD++
           </p>

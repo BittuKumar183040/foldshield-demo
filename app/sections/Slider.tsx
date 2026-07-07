@@ -78,26 +78,10 @@ const Slider = ({ data, active, setActive }: SliderProps) => {
       <div key={active} ref={containerRef} className=" absolute inset-0 dark:invert-0 dark:grayscale-0 invert-100 grayscale-100">
         <Hero />
         {video ? (
-          <video
-            src={currentMedia}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-fill"
-          />
+          <video src={currentMedia} autoPlay muted loop playsInline className="w-full h-full object-fill" />
         ) : (
-          <Image
-            src={currentMedia}
-            fill
-            sizes=""
-            className="object-cover"
-            alt={data[active].title}
-            priority
-            unoptimized
-          />
+          <Image src={currentMedia} fill className="w-full h-full object-fill" alt={data[active].title} priority unoptimized />
         )}
-
         <div className="absolute inset-0 pointer-events-none" />
       </div>
       {data.length > 1 && 

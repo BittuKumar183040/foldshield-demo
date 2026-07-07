@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { K2D } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
+import Loading from "./components/ui/Loading";
 
 const k2d = K2D({
   weight: ["300", "400", "500", "600", "700"],
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning className={`${k2d.variable} h-dvh antialiased`}>
       <body className="min-h-full w-full flex flex-col">
+        <Loading />
         <SmoothScrollProvider>
           {/* <CursorEffect /> */}
           {children}

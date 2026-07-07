@@ -155,11 +155,11 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
                 className="absolute h-9/12 overflow-hidden rounded-lg bg-white/20 "
                 style={{ width: 0, opacity: 0 }}
               >
-                <img
+                {/* <img
                   src="button.gif"
                   alt="Button"
                   className="w-full h-full grayscale-100 opacity-30"
-                />
+                /> */}
               </div>
 
               {menuItems.map((item, index) => (

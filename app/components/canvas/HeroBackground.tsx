@@ -105,7 +105,7 @@ export default function Hero() {
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed inset-0 h-full w-full" />
+      <canvas ref={canvasRef} className="fixed inset-0 h-full w-full z-10" />
     </>
   );
 }
