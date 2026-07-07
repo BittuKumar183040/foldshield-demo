@@ -106,8 +106,8 @@ export default function ProjectInterestSection( { project="FOLDSHIELD++" } : {pr
     setForm({
       name: "",
       email: "",
-      interest: "",
-      project: "FOLDSHIELD++",
+      interest: "Product Demo",
+      project: project,
       message: "",
     });
     setErrors({});

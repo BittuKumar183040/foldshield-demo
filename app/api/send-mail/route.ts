@@ -32,8 +32,8 @@ export async function POST(req: Request) {
 
       attachments: [
         {
-          filename: "64.png",
-          path: path.join(process.cwd(), "public", "rexcrux", "64.png"),
+          filename: "foldshield.png",
+          path: path.join(process.cwd(), "public", "rexcrux", "foldshield.png"),
           cid: "rexcruxlogo",
         },
       ],
