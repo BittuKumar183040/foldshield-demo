@@ -53,9 +53,7 @@ export default function PDBModels({
       quality: "high",
       sampleLevel: 2,
       cameraFov: 35,
-      clipNear: 0,
-      fogNear: 50,
-      fogFar: 100,
+      clipNear: 0
     });
 
     async function loadProtein() {
@@ -89,6 +87,7 @@ export default function PDBModels({
 
         component.autoView(0);
         stage.autoView(0);
+        stage.mouseControls.remove("hoverPick")
         stage.viewer.requestRender();
 
         if (autoRotate) {
