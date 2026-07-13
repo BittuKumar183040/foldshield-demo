@@ -9,10 +9,12 @@ import Navbar from "./sections/Navbar";
 import WhoItsFor from "./sections/WhoItsFor";
 import ProblemStatement from "./sections/ProblemStatement";
 import CTA from "./sections/CTA";
+import ScrollProgressBar from "./components/ScrollPosition";
 
 export default function Home() {
   return (<>
     <Navbar />
+    <ScrollProgressBar />
     <div className="flex flex-col flex-1 items-center justify-center bg-white dark:bg-black">
         <HeroSection />
         <PlatformSlider />

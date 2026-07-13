@@ -47,6 +47,7 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
         ease: "power2.in",
       });
     }
+
   }, [mobileOpen]);
 
   useEffect(() => {
@@ -139,9 +140,11 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
   return (
     <nav
       ref={navContainerRef}
-      className="fixed h-14 px-2.5 md:px-2.5 lg:px-25 backdrop-blur-sm flex gap-2 items-center z-50 w-full"
+      className="fixed inset-x-0 top-0 z-50 h-14 flex items-center gap-2 px-2.5 md:px-2.5 lg:px-25"
     >
       <BrandLogo />
+
+      <div className="absolute inset-0 -z-10 border-b border-white/10 bg-white/10 backdrop-blur-sm dark:bg-black/20" />
       {!onlyLogo && (
         <>
           <div className="hidden md:flex flex-1 justify-center">
@@ -181,7 +184,7 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
             </Link>
           </div>
 
-          <div className="md:hidden ml-auto text-black dark:text-white">
+          <div className="md:hidden ml-auto text-gray-900 dark:text-white">
             <button onClick={() => setMobileOpen((prev) => !prev)}>
               {mobileOpen ? <X size={24} /> : <MenuIcon size={24} />}
             </button>
@@ -189,7 +192,7 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
 
           <div
             ref={mobileRef}
-            className="absolute top-full left-0 w-full bg-white dark:bg-black backdrop-blur-sm shadow-md rounded-lg md:hidden overflow-hidden"
+            className="absolute top-full left-0 w-full bg-white/20 dark:bg-black/30 backdrop-blur-sm shadow-md rounded-lg md:hidden overflow-hidden"
             style={{ height: 0, opacity: 0 }}
           >
             <div className="flex flex-col gap-4 p-4">
