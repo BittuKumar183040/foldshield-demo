@@ -107,7 +107,7 @@ const CTA = () => {
     >
       <div
         ref={cardRef}
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md px-8 py-16 dark:text-white md:px-16 md:py-20"
+        className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md px-8 py-16 dark:text-white text-black md:px-16 md:py-20"
         style={{ visibility: "hidden" }}
       >
         <div
@@ -139,7 +139,7 @@ const CTA = () => {
 
             <p
               ref={bodyRef}
-              className="mt-6 max-w-2xl text-lg leading-8 dark:text-white/70"
+              className="mt-6 max-w-2xl text-lg leading-8 dark:text-white/70 text-black"
               style={{ visibility: "hidden" }}
             >
               Book a 30-minute demo. We&apos;ll run FoldShield++ on structures from

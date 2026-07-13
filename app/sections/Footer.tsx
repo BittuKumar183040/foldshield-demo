@@ -19,13 +19,13 @@ const Footer = () => {
             <GradientLabel label="FOLDSHIELD++" />
           </div>
 
-          <p className="text-lg leading-relaxed dark:text-gray-300">
+          <p className="text-lg leading-relaxed dark:text-gray-300 text-black">
             A Symbolic – Topological Structural Intelligence Engine for Protein Analysis
           </p>
 
           <div className="flex flex-col gap-1">
-            <p className="text-sm dark:text-gray-400">Email</p>
-            <p className="text-2xl dark:text-white">info@rexcrux.com</p>
+            <p className="text-sm text-black dark:text-gray-400">Email</p>
+            <p className="text-2xl text-black dark:text-white">info@rexcrux.com</p>
           </div>
 
           <div className="flex items-center gap-4 mt-2 cursor-pointer">

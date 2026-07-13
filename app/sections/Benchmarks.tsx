@@ -81,14 +81,14 @@ const Benchmarks = () => {
         </div>
       )}
 
-      <div className="flex flex-col items-center gap-6 " ref={labelRef}>
+      <div className="flex flex-col items-center gap-6 text-black " ref={labelRef}>
         <GradientLabel
           label={benchmarkLabel.title}
           size="3xl"
           weight="normal"
           centered
         />
-        <p className=" text-center lg:w-8/12 w-11/12 text-md dark:text-white/80">
+        <p className=" text-center lg:w-8/12 w-11/12 text-md text-black dark:text-white/80">
           {benchmarkLabel.desc}
         </p>
       </div>
@@ -98,7 +98,7 @@ const Benchmarks = () => {
         </div>
       )}
 
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-2 lg:gap-5 mt-10 dark:text-white backdrop-blur-md">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-2 lg:gap-5 mt-10 text-black dark:text-white backdrop-blur-md">
         <div className="relative ">
           <PDBModels model={model.mesh} />
           { meshes.length > 1 && (
@@ -150,7 +150,7 @@ const Benchmarks = () => {
                     {Object.keys(model.statsTable).map((column, idx) => (
                       <td
                         key={`${column}-${rowIndex}`}
-                        className={`px-4 py-4 whitespace-nowrap ${idx === 0 && " text-[#E8B9A3] "}`}
+                        className={`px-4 py-4 whitespace-nowrap ${idx === 0 ? " text-[#E8B9A3] " : "text-black dark:text-white"} `}
                       >
                         {
                           model.statsTable[

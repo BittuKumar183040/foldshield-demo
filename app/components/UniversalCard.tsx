@@ -108,7 +108,7 @@ const UniversalCard = ({
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`relative flex flex-col gap-4 p-5 border border-black/10 dark:border-white/10 bg-white dark:bg-black dark:text-white rounded-lg cursor-pointer ${className}`}
+      className={`relative flex flex-col gap-4 p-5 border border-black/10 dark:border-white/10 bg-white dark:bg-black text-black dark:text-white rounded-lg cursor-pointer ${className}`}
     >
       {showBar && (
         <div

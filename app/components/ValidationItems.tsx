@@ -113,7 +113,7 @@ export default function ValidationSection() {
                 />
               </motion.div>
 
-              <p className="text-sm leading-relaxed dark:text-white/90 transition-colors duration-300">
+              <p className="text-sm leading-relaxed text-black dark:text-white/90 transition-colors duration-300">
                 {item.text}
               </p>
             </motion.div>

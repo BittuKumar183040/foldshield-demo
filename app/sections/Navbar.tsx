@@ -181,7 +181,7 @@ const Navbar = ({ onlyLogo = false }: { onlyLogo?: boolean }) => {
             </Link>
           </div>
 
-          <div className="md:hidden ml-auto dark:text-white">
+          <div className="md:hidden ml-auto text-black dark:text-white">
             <button onClick={() => setMobileOpen((prev) => !prev)}>
               {mobileOpen ? <X size={24} /> : <MenuIcon size={24} />}
             </button>
