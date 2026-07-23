@@ -30,7 +30,7 @@ const Footer = () => {
 
           <div className="flex items-center gap-4 mt-2 cursor-pointer">
             <SocialIcon href="https://www.facebook.com/620183561187722" src="/icon/facebook.png" />
-            <SocialIcon href="https://www.linkedin.com/in/marcos-guerrero-ceo-rpa-86740b25" src="/icon/linkedin.png" />
+            <SocialIcon href="https://www.linkedin.com/company/rexcrux/posts/?feedView=all" src="/icon/linkedin.png" />
           </div>
         </div>
         <div className="h-px w-full bg-gray-200 dark:bg-white/10" />
